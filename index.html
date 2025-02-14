@@ -19,16 +19,18 @@
                     
             </div>
 
-                  <!-- Modale d'inscription -->
-     <div class="d-flex mb-3">
-            <button id="openModal" class="btn bg-black text-white  mt-5">S'inscrire</button> 
-            <button id="openModal" class="ms-auto btn bg-black text-white  mt-5"><a href="#form">Nous contacter</a></button>           
-            
+                  
+    <div class="d-flex justify-content-between mb-3">
+        <button id="openModal" class="btn bg-black text-white mt-5 me-2">Se connecter</button>
+        <button id="openRegisterModal" class="btn bg-black text-white mt-5">S'inscrire</button>
+        <button id="openModal" class="ms-auto btn bg-black text-white  mt-5"><a href="#form">Nous contacter</a></button>           
+    </div>   
         </div>
-            <div id="modal" class="modal">
-        <div class="modal-content">
+        <!-- MODAL CONNEXION-->
+            <div id="modal1" class="modal1">
+        <div class="modal-content1">
             <span class="close">&times;</span>
-            <div class="logo"><i class="fa-brands fa-x-twitter"></i></div>
+            <div class="logo1"><i class="fa-brands fa-x-twitter"></i></div>
             <h2>Rejoignez X dès aujourd'hui</h2>
 
             <button class="btn btn-light w-100 my-2">
@@ -53,6 +55,44 @@
             <p class="mt-3">Vous avez déjà un compte ? <a href="#" class="text-primary">Connectez-vous</a></p>
         </div>
     </div>
+
+    <!-- MODAL D'ENREGISTREMENT -->
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span> <!-- Bouton de fermeture -->
+        <div class="logo"><i class="fa-brands fa-amazon"></i></div>
+        <h2>Créer un compte</h2>
+
+        <!-- Formulaire -->
+        <form id="registerForm">
+            <div class="mb-3">
+                <label class="form-label">Votre nom</label>
+                <input type="text" class="form-control" id="name" placeholder="Prénom et nom" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Numéro de téléphone ou adresse e-mail</label>
+                <input type="email" class="form-control" id="email" placeholder="Votre email" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Mot de passe</label>
+                <input type="password" class="form-control" id="password" placeholder="Au moins 6 caractères" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Confirmez le mot de passe</label>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Entrez à nouveau votre mot de passe" required>
+            </div>
+
+            <button type="submit" class="btn btn-warning w-100">Continuer</button>
+        </form>
+
+        <p class="terms-register mt-3">
+            En créant un compte, vous acceptez les 
+            <a href="#">conditions d'utilisation</a> et la 
+            <a href="#">politique de confidentialité</a>.
+        </p>
+    </div>
+</div>
+
 
         </header>                   
                                              <!-- MAIN -->
