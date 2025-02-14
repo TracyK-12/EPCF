@@ -3,6 +3,26 @@ body, html {
     padding: 0;
     font-family: Arial, sans-serif;
 }
+/* Effet Fade-In */
+#site {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInAnimation 1s ease-in-out forwards;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
                  /* HEADER */
 header {
     background-color: #ff6600; 
@@ -35,9 +55,9 @@ header {
     text-align: left;
     line-height: 1.5;
 }  
-                 /* MODAL INSCRIPTION */
+                 /* MODAL CONNEXION TWITTER */
 
-.modal {
+.modal1 {
     display: none;
     position: fixed;
     z-index: 1000;
@@ -50,7 +70,7 @@ header {
     align-items: center;
 }
 
-.modal-content {
+.modal-content1 {
     background-color: #000;
     color: white;
     padding: 30px;
@@ -69,7 +89,7 @@ header {
     cursor: pointer;
 }
 
-.logo {
+.logo1 {
     font-size: 32px;
     margin-bottom: 20px;
 }
@@ -96,6 +116,63 @@ header {
     color: white;
     text-decoration: none;
 
+}
+
+                                    /*MODAL ENREGISTREMENT AMAZON */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modal-content {
+    background-color: #fff;
+    color: black;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+}
+
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+.logo {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ff9900;
+}
+
+
+.terms-register  {
+    font-size: 12px;
+    color: #666;
+}
+
+.terms-register  a {
+    color: #ff9900;
+    text-decoration: none;
+}
+
+.terms-register  a:hover {
+    text-decoration: underline;
 }
 
 
