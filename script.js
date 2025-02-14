@@ -1,3 +1,6 @@
+                      
+                      // GESTION DES BOUTONS TOGGLE
+
 document.addEventListener("DOMContentLoaded", function() {
 
     const skillsSection = document.querySelector("#skills");
@@ -20,9 +23,11 @@ document.addEventListener("DOMContentLoaded", function() {
         skillsSection.parentNode.insertBefore(toggleSkillsBtn, skillsSection);
         projetSection.parentNode.insertBefore(toggleProjetBtn, projetSection);
 
-                                     // Gestion du clic sur les boutons
+                                     
+        // Gestion du clic sur les boutons
         toggleSkillsBtn.addEventListener("click", function() {
             skillsSection.style.display = (skillsSection.style.display === "none" ? "block" : "none");
+
                                     // Changer l'icône en fonction de l'état
             const icon = toggleSkillsBtn.querySelector(".icon");
             icon.innerHTML = skillsSection.style.display === "none" ? "▲" : "▼"; // ▲ Dropup, ▼ Dropdown
@@ -38,10 +43,10 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error("⚠️ Erreur : Les sections #skills et/ou #projet sont introuvables dans le DOM.");
     }
 });
-// SCRIPT FORMULAIRE
+                                           // SCRIPT FORMULAIRE
 
 document.addEventListener("DOMContentLoaded", function() {
-    /** 📌 1. GESTION DU FORMULAIRE **/
+                                 /**  1. GESTION DU FORMULAIRE **/
 
     const form = document.querySelector("form");
 
@@ -88,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 
-        /** 📌 2. FONCTION DE VALIDATION EMAIL **/
+        /**  2. FONCTION DE VALIDATION EMAIL **/
         function validateEmail(email) {
             const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             return emailPattern.test(email);
@@ -97,10 +102,10 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error("⚠️ Erreur : Formulaire introuvable dans le DOM.");
     }
 });
- // SCRIPT MODALE INSCRIPTION
+ //   SCRIPT MODALE INSCRIPTION
 document.addEventListener("DOMContentLoaded", function() {
     const openModalBtn = document.getElementById("openModal");
-    const modal = document.getElementById("modal");
+    const modal = document.getElementById("modal1");
     const closeModalBtn = document.querySelector(".close");
 
     // Ouvrir la modale
@@ -120,3 +125,73 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+// SCRIPT MODALE ENREGISTREMENT
+
+document.addEventListener("DOMContentLoaded", function() {
+    const registerModal = document.getElementById("registerModal");
+    const registerBtn = document.getElementById("openRegisterModal");
+    const closeBtn = registerModal.querySelector(".close");
+    const form = document.getElementById("registerForm");
+
+    // Ouvrir la modale
+    registerBtn.addEventListener("click", function() {
+        registerModal.style.display = "flex";
+    });
+
+    // Fermer la modale
+    closeBtn.addEventListener("click", function() {
+        registerModal.style.display = "none";
+    });
+
+    // Fermer la modale en cliquant à l'extérieur
+    window.addEventListener("click", function(event) {
+        if (event.target === registerModal) {
+            registerModal.style.display = "none";
+        }
+    });
+
+    // Validation du formulaire
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); // Empêche l'envoi par défaut
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (name === "" || email === "" || password === "" || confirmPassword === "") {
+            alert("❌ Tous les champs sont obligatoires !");
+            return;
+        }
+
+        if (!validateEmail(email)) {
+            alert("❌ Veuillez entrer une adresse e-mail valide.");
+            return;
+        }
+
+        if (password.length < 6) {
+            alert("❌ Le mot de passe doit contenir au moins 6 caractères.");
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            alert("❌ Les mots de passe ne correspondent pas !");
+            return;
+        }
+
+        console.log("✅ Inscription réussie !");
+        console.table({ Nom: name, Email: email, Password: password });
+
+        alert("✔️ Compte créé avec succès !");
+        form.reset(); // Réinitialise le formulaire
+        registerModal.style.display = "none"; // Ferme la modale
+    });
+
+    // Fonction de validation email
+    function validateEmail(email) {
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return emailPattern.test(email);
+    }
+});
+
